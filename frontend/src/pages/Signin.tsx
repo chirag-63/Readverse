@@ -70,8 +70,8 @@ export const Signin = () => {
                         </div>
                         {/* wrapper div for button  */}
                         <div className="flex flex-col justify-center items-center text-white font-normal text-lg">
-                            <div onClick={handleSignin} className="flex justify-center items-center mb-3 w-44 h-10" style={{cursor: (userInputs.email.trim().length==0 || userInputs.password.length ==0) ? 'not-allowed' : 'pointer'}}>
-                                <Button label="Sign in" type="green" disabled={userInputs.email.trim().length==0 || userInputs.password.length ==0} />
+                            <div onClick={handleSignin} className="flex justify-center items-center mb-3 w-44 h-10" style={{cursor: (userInputs.email.trim().length==0 || userInputs.password.length ==0 || userInputs.password.length > 12) ? 'not-allowed' : 'pointer'}}>
+                                <Button label="Sign in" type="green" disabled={userInputs.email.trim().length==0 || userInputs.password.length ==0 || userInputs.password.length > 12} />
                             </div>
                             <Warning label={warning} />
                         </div>

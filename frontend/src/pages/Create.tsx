@@ -37,8 +37,8 @@ export const Create = () => {
                             className="mx-10 w-[800px] outline-none border-[1px] border-gray-400 bg-gray-50 p-3 mb-10 rounded min-h-14 max-h-24 text-lg font-serif"
                             placeholder="A Thought to Remember..."
                         />
-                        <div onClick={publish} className='mr-48 w-28 h-10 rounded' style={{ cursor: (title.length == 0 || title.length > 100 || content.length == 0 || content.length > 5000) ? 'not-allowed' : 'pointer' }}>
-                            <Button label='Publish' type='green' disabled={title.length == 0 || title.length > 100 || content.length == 0 || content.length > 5000} />
+                        <div onClick={publish} className='mr-48 w-28 h-10 rounded' style={{ cursor: (title.trim().length == 0 || title.trim().length > 100 || content.trim().length == 0 || content.trim().length > 5000) ? 'not-allowed' : 'pointer' }}>
+                            <Button label='Publish' type='green' disabled={title.trim().length == 0 || title.trim().length > 100 || content.trim().length == 0 || content.trim().length > 5000} />
                         </div>
                     </div>
                 </div>

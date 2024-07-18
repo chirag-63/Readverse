@@ -1,6 +1,8 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import appLogo from '../assets/logo/readverse-logo.png'
+import { Link } from 'react-router-dom';
+
 const currentPath = window.location.pathname;
 
 const navigation = [
@@ -33,11 +35,13 @@ export default function Appbar() {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img
-                alt="readverse logo"
-                src={appLogo}
-                className="h-10 w-auto mt-1"
-              />
+              <Link to={'/feed'}>
+                <img
+                  alt="readverse logo"
+                  src={appLogo}
+                  className="h-10 w-auto mt-1"
+                />
+              </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex items-center">
               <div className="flex space-x-4">
@@ -64,7 +68,7 @@ export default function Appbar() {
             >
               <span className="absolute -inset-1.5" />
               <span className="sr-only">View notifications</span>
-              <BellIcon aria-hidden="true" className="h-6 w-6" />
+              {/* <BellIcon aria-hidden="true" className="h-6 w-6" /> */}
             </button>
 
             {/* Profile dropdown */}
