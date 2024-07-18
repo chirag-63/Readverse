@@ -22,7 +22,7 @@ export const Footer = () => {
                     </div>
                 </div>
             </footer>
-            <p className="text-center font-serif text-sm">© All rights reserved to your 💗, no sharing allowed.</p>
+            <p className="text-center font-serif text-sm">© All rights reserved</p>
         </div>
     )
 }
