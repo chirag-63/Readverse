@@ -23,7 +23,6 @@ export const Signup = () => {
             Navigate('/feed')
         } catch (err: any) {
             if (err.response.status == 411) {
-                console.log(err.response.data)
                 setWarning(err.response.data[0].message)
                 if (err.response.data.length == 2) setWarning(err.response.data[1].message)
             }
