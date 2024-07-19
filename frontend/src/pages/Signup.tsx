@@ -16,19 +16,27 @@ export const Signup = () => {
         password: ""
     })
 
+    const submitConditionFail = userInputs.name.trim().length == 0 || userInputs.email.trim().length == 0 || userInputs.password.length == 0 || userInputs.password.length > 12;
+
     const handleSignup = async () => {
-        try {
-            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signup`, userInputs)
-            localStorage.setItem("token", `${response.data.jwt}`)
-            Navigate('/feed')
-        } catch (err: any) {
-            if (err.response.status == 411) {
-                setWarning(err.response.data[0].message)
-                if (err.response.data.length == 2) setWarning(err.response.data[1].message)
+        if(!submitConditionFail){
+            try {
+                const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/signup`, userInputs)
+                console.log(response)
+                localStorage.setItem("token", `${response.data.jwt}`)
+                Navigate('/feed')
+            } catch (err: any) {
+                console.log(err.response)
+                if (err.response.status == 411) {
+                    setWarning(err.response.data[0].message)
+                    if (err.response.data.length == 2) setWarning(err.response.data[1].message)
+                }
+                else setWarning(err.response.data.error)
             }
-            else setWarning(err.response.data.error)
         }
+        else setWarning("Invalid inputs")
     }
+
 
     return (
         <div>
@@ -75,8 +83,8 @@ export const Signup = () => {
                         </div>
                         {/* wrapper div for button  */}
                         <div className="flex flex-col justify-center items-center text-white font-normal text-lg">
-                            <div className="flex justify-center items-center mb-3 w-44 h-10" style={{cursor: (userInputs.name.trim().length == 0 || userInputs.email.trim().length == 0 || userInputs.password.length==0 || userInputs.password.length > 12) ? 'not-allowed' : 'pointer'}}>
-                                <Button onClick={handleSignup} label="Sign up" type="purple" disabled={userInputs.name.trim().length == 0 || userInputs.email.trim().length == 0 || userInputs.password.length==0 || userInputs.password.length > 12} />
+                            <div className="flex justify-center items-center mb-3 w-44 h-10" style={{ cursor: (submitConditionFail) ? 'not-allowed' : 'pointer' }}>
+                                <Button onClick={handleSignup} label="Sign up" type="purple" disabled={submitConditionFail} />
                             </div>
                             <Warning label={warning} />
                         </div>

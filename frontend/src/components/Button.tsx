@@ -2,10 +2,10 @@ interface ButtonProps {
   label: string;
   disabled?:boolean,
   onClick?: ()=> void
-  type?: 'purple' | 'green' | 'black'; // Renamed button types
+  type?: 'purple' | 'green' | 'black';
 }
 
-export function Button({ label, disabled, type = 'purple' }: ButtonProps) {
+export function Button({ label, disabled, onClick, type = 'purple' }: ButtonProps) {
   let buttonClass = '';
 
   switch (type) {
@@ -26,7 +26,7 @@ export function Button({ label, disabled, type = 'purple' }: ButtonProps) {
   }
 
   return (
-    <button type="button" className={buttonClass} disabled={disabled}>
+    <button type="button" className={buttonClass} onClick={onClick} disabled={disabled}>
       {label}
     </button>
   )

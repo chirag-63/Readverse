@@ -84,6 +84,8 @@ export const setBlog = () => {
     const [content, setContent] = useState('')
     const navigate = useNavigate()
 
+    const submitConditionFail = title.trim().length == 0 || title.trim().length > 100 || content.trim().length == 0 || content.trim().length > 5000;
+
     const publish = async () => {
         const payload = {
             title: title.trim(),
@@ -104,12 +106,12 @@ export const setBlog = () => {
     }
 
     useEffect(() => {
-        if (title.trim() !== '' && content.trim() !== '') {
+        if (title.trim() !== '' && content.trim() !== '' && !submitConditionFail) {
             publish()
         }
     }, [])
 
-    return { title, content, setTitle, setContent, publish }
+    return { title, content, setTitle, setContent, publish, submitConditionFail }
 }
 
 export const useMyProfile = () => {

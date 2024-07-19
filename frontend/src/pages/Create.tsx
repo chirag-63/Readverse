@@ -7,7 +7,7 @@ import { useState } from "react";
 import { setBlog } from '../hooks';
 
 export const Create = () => {
-    const { title, setTitle, content, setContent, publish } = setBlog()
+    const { title, setTitle, content, setContent, publish, submitConditionFail } = setBlog()
     const [titleCount, settitleCount] = useState(100)
     const [contentCount, setContentCount] = useState(5000)
 
@@ -38,8 +38,8 @@ export const Create = () => {
                                 className="mx-10 w-[800px] outline-none border-[1px] border-gray-400 bg-gray-50 p-3 mb-10 rounded min-h-14 max-h-24 text-lg font-serif"
                                 placeholder="A Thought to Remember..."
                             />
-                            <div className='mr-48 w-28 h-10 rounded' style={{ cursor: (title.trim().length == 0 || title.trim().length > 100 || content.trim().length == 0 || content.trim().length > 5000) ? 'not-allowed' : 'pointer' }}>
-                                <Button onClick={publish} label='Publish' type='green' disabled={title.trim().length == 0 || title.trim().length > 100 || content.trim().length == 0 || content.trim().length > 5000} />
+                            <div className='mr-48 w-28 h-10 rounded' style={{ cursor: (submitConditionFail) ? 'not-allowed' : 'pointer' }}>
+                                <Button onClick={publish} label='Publish' type='green' disabled={submitConditionFail} />
                             </div>
                         </div>
                     </div>
