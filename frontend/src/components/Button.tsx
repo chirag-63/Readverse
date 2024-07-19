@@ -1,6 +1,7 @@
 interface ButtonProps {
   label: string;
   disabled?:boolean,
+  onClick?: ()=> void
   type?: 'purple' | 'green' | 'black'; // Renamed button types
 }
 
