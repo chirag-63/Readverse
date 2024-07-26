@@ -9,18 +9,18 @@ export const UserProfile = () => {
     return (
         <div>
             <Appbar />
-            <div className="flex flex-col md:hidden mt-20 min-h-[500px] mx-5">
+            <div className="flex flex-col md:hidden mt-20 min-h-[750px] mx-5">
                 <div className="flex justify-around mx-3">
                     <img
                         alt="user profile"
                         src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
-                        className="h-32 w-32 rounded-full my-3"
+                        className="h-28 w-28 rounded-full my-3"
                     />
                     <div className="flex flex-col items-center mt-7">
                         <div className="mb-3 px-3 py-2 text-xl font-serif rounded max-w-fit font-semibold bg-neutral-300">
                             {name}
                         </div>
-                        <div className="px-3 py-2 text-base font-serif rounded max-w-fit bg-neutral-300">
+                        <div className="px-2 py-2 text-base font-serif rounded max-w-fit bg-neutral-300">
                             {`email : ${email}`}
                         </div>
                     </div>

@@ -34,7 +34,7 @@ export const Create = () => {
                         }}
                             value={title}
                             name="title"
-                            className="mx-10 w-[800px] min-w-[385px] outline-none border-[1px] border-gray-400 bg-gray-50 p-3 mb-10 rounded min-h-20 max-h-20 text-base lg:text-lg font-serif"
+                            className="mx-10 w-[800px] outline-none border-[1px] border-gray-400 bg-gray-50 p-3 mb-10 rounded min-h-20 max-h-20 text-base lg:text-lg font-serif"
                             placeholder="A Thought to Remember..."
                         />
                         <div className='hidden md:flex md:mr-48 md:w-28 md:h-10 rounded' style={{ cursor: (submitConditionFail) ? 'not-allowed' : 'pointer' }}>
