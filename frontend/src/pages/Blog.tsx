@@ -18,6 +18,7 @@ export const Blogg = () => {
                 <div className="md:mx-12 xl:mt-32 lg:mx-32" >
                     <ArticleLoader />
                 </div>
+                <div className="h-[124px]"></div>
                 <div className="relative">
                     <Footer />
                 </div>
@@ -44,7 +45,7 @@ export const Blogg = () => {
         return (
             <div>
                 <Appbar />
-                <div className="m-8 md:m-12 xl:mt-32 lg:mx-32 mt-20 md:mt-28 lg:min-h-96 min-h-[455px] md:min-h-[335px] ">
+                <div className="m-8 md:m-12 xl:mt-32 lg:mx-32 mt-20  md:mt-28 lg:min-h-96 min-h-[455px] md:min-h-[335px] ">
                     <div className="font-mono text-sm text-slate-700 mb-4">
                         {`${date.slice(0, 10)}`}
                     </div>
